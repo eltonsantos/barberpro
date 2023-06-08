@@ -65,13 +65,14 @@ export default function Haircuts(){
             w="100%"
             p={4}
             bg="barber.400"
-            direction="row"
+            direction={isMobile ? "column" : "row"}
+            align={isMobile ? "flex-start" : "center"}
             rounded="4"
             mb={2}
             justifyContent="space-between"
           >
 
-            <Flex direction="row" alignItems="center" justifyContent="center" >
+            <Flex mb={isMobile ? 2 : 0} direction="row" alignItems="center" justifyContent="center" >
               <IoMdPricetag size={28} color="#fba931"/>
               <Text fontWeight="bold" ml={4} noOfLines={2} color="white">
                 Corte completo

@@ -8,7 +8,6 @@ export function canSSRAuth<P>(fn: GetServerSideProps<P>){
 
     const token = cookies['@barber.token'];
 
-
     if(!token){
       return{
         redirect:{
