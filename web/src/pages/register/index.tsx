@@ -17,7 +17,6 @@ export default function Register(){
     console.log(password)
   }
 
-
   return(
     <>
       <Head>
@@ -79,7 +78,6 @@ export default function Register(){
           >
             Cadastrar
           </Button>
-
 
           <Center mt={2}>
             <Link href="/login">
