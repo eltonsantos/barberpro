@@ -62,7 +62,7 @@ export default function Register(){
             variant="filled"
             size="lg"
             placeholder="********"
-            type="text"
+            type="password"
             mb={6}
             value={password}
             onChange={ (e) => setPassword(e.target.value) }
@@ -81,7 +81,7 @@ export default function Register(){
 
           <Center mt={2}>
             <Link href="/login">
-              <Text cursor="pointer" color="#ddd">Já possui uma conta? <strong>Faça login</strong></Text>
+              <Text cursor="pointer">Já possui uma conta? <strong>Faça login</strong></Text>
             </Link>
           </Center>
 

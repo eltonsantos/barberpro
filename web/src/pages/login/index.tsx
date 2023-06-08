@@ -14,7 +14,6 @@ export default function Login(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-
   async function handleLogin(){
     await signIn({
       email,
@@ -56,7 +55,7 @@ export default function Login(){
             variant="filled"
             size="lg"
             placeholder="********"
-            type="text"
+            type="password"
             mb={6}
             value={password}
             onChange={ (e) => setPassword(e.target.value) }
