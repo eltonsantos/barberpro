@@ -10,6 +10,7 @@ import {
 import { Sidebar } from '../../components/sidebar'
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
+import { getStripeJs } from '../../services/stripe-js'
 
 interface PlanosProps{
   premium: boolean;
@@ -17,6 +18,47 @@ interface PlanosProps{
 
 export default function Planos({ premium }: PlanosProps){
   const [isMobile] = useMediaQuery('(max-width: 500px)')
+
+  const handleSubscribe = async () => {
+    if(premium){
+      return;
+    }
+
+    try{
+      const apiClient = setupAPIClient();
+      const response = await apiClient.post('/subscribe')
+
+      const { sessionId } = response.data;
+
+      const stripe = await getStripeJs();
+      await stripe.redirectToCheckout({ sessionId: sessionId })
+
+    }catch(err){
+      console.log(err);
+    }
+
+  }
+
+  async function handleCreatePortal(){
+    
+    try{
+
+      if(!premium){
+        return;
+      }
+
+      const apiClient = setupAPIClient();
+      const response = await apiClient.post("/create-portal")
+
+      const { sessionId } = response.data;
+
+      window.location.href = sessionId;
+
+    }catch(err){
+      console.log(err.message);
+    }
+
+  }
 
   return(
     <>
@@ -69,7 +111,7 @@ export default function Planos({ premium }: PlanosProps){
                   bg={premium ? "transparent" : "button.cta"}
                   m={2}
                   color="white"
-                  onClick={() => {}}
+                  onClick={handleSubscribe}
                   disabled={premium}
                 >
                   {premium ? (
@@ -85,7 +127,7 @@ export default function Planos({ premium }: PlanosProps){
                     bg="white"
                     color="barber.900"
                     fontWeight="bold"
-                    onClick={ () => {} }
+                    onClick={handleCreatePortal}
                   >
                     ALTERAR ASSINATURA
                   </Button>
