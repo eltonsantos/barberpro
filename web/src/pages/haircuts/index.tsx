@@ -7,6 +7,7 @@ import {
   Text,
   Heading,
   Button,
+  Link as ChakraLink,
   Stack,
   Switch,
   useMediaQuery
@@ -111,7 +112,16 @@ export default function Haircuts({ haircuts }: HaircutsProps){
          </Flex>
 
         {haircutList.map(haircut => (
-          <Link key={haircut.id} href={`/haircuts/${haircut.id}`}>
+          <ChakraLink
+            key={haircut.id}
+            w="100%"
+            m={0}
+            p={0}
+            mt={1}
+            bg="transparent"
+            style={{ textDecoration: 'none' }}
+            href={`/haircuts/${haircut.id}`}
+          >
             <Flex
               cursor="pointer"
               w="100%"
@@ -136,7 +146,7 @@ export default function Haircuts({ haircuts }: HaircutsProps){
               </Text>
   
             </Flex>
-          </Link>
+          </ChakraLink>
         ))}
 
         </Flex>

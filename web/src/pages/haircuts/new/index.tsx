@@ -7,6 +7,7 @@ import {
   Text,
   Heading,
   Button,
+  Link as ChakraLink,
   useMediaQuery,
   Input
 } from '@chakra-ui/react'
@@ -66,19 +67,28 @@ export default function NewHaircut({ subscription, count }: NewHaircutProps){
             align={isMobile ? "flex-start" : "center"}
             mb={isMobile ? 4 : 0}
           >
-            <Link href="/haircuts">
+            <ChakraLink
+              href="/haircuts"
+              style={{ textDecoration: 'none' }} 
+            >
               <Button 
-              bg="gray.700" _hover={{ background: 'gray.700' }}
-              p={4} 
-              display="flex" 
-              alignItems="center" 
-              justifyItems="center" 
-              mr={4}
+                bg="transparent"
+                _hover={{ background: 'gray.700' }}
+                p={4} 
+                display="flex" 
+                alignItems="center" 
+                justifyItems="center" 
+                mr={4}
+                textDecoration="none"
+                color="gray.100"
               >
-                <FiChevronLeft size={24} color="#FFF"/>
+                <FiChevronLeft
+                  size={24}
+                  color="gray.100"
+                />
                 Voltar
               </Button>
-            </Link>
+            </ChakraLink>
             <Heading
             color="orange.900"
             mt={4}

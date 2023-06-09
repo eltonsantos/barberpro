@@ -7,10 +7,12 @@ import {
   Heading,
   Text,
   Button,
+  Link as ChakraLink,
   Input,
   Select
 } from '@chakra-ui/react'
 
+import { FiChevronLeft } from 'react-icons/fi'
 import { canSSRAuth } from '../../utils/canSSRAuth'
 import { setupAPIClient } from '../../services/api'
 
@@ -72,13 +74,39 @@ export default function New({ haircuts }: NewProps){
         <title>BarberPro - Novo agendamento</title>
       </Head>
       <Sidebar>
-        <Flex direction="column" align="flex-start" justify="flex-start">
+        <Flex
+          direction="column"
+          align="flex-start"
+          justify="flex-start"
+        >
           <Flex
             direction="row"
             w="100%"
             align="center"
             justify="flex-start"
           >
+            <ChakraLink
+              href="/haircuts"
+              style={{ textDecoration: 'none' }} 
+            >
+              <Button 
+                bg="transparent"
+                _hover={{ background: 'gray.700' }}
+                p={4} 
+                display="flex" 
+                alignItems="center" 
+                justifyItems="center" 
+                mr={4}
+                textDecoration="none"
+                color="gray.100"
+              >
+                <FiChevronLeft
+                  size={24}
+                  color="gray.100"
+                />
+                Voltar
+              </Button>
+            </ChakraLink>
             <Heading fontSize="3xl" mt={4} mb={4} mr={4}>
               Novo corte
             </Heading>

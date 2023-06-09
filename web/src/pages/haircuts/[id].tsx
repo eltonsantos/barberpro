@@ -5,6 +5,7 @@ import {
   Text,
   Heading,
   Button,
+  Link as ChakraLink,
   useMediaQuery,
   Input,
   Stack,
@@ -92,12 +93,24 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
             justifyContent="flex-start"
             mb={isMobile ? 4 : 0}
           >
-            <Link href="/haircuts">
-              <Button bg="gray.700" _hover={{ background: 'gray.700' }} mr={3} p={4} display="flex" alignItems="center" justifyContent="center">
+            <ChakraLink
+              href="/haircuts"
+              style={{ textDecoration: 'none' }}  
+            >
+              <Button
+                bg="transparent"
+                _hover={{ background: 'gray.700' }}
+                p={4}
+                display="flex"
+                alignItems="center" justifyContent="center"
+                mr={3}
+                textDecoration="none"
+                color="gray.100"
+              >
                 <FiChevronLeft size={24} color="#FFF"/>
                 Voltar
               </Button>
-            </Link>
+            </ChakraLink>
 
             <Heading fontSize={isMobile ? "22px" : "3xl"} color="white">
               Editar corte
