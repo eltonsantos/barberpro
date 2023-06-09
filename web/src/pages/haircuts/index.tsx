@@ -35,31 +35,31 @@ export default function Haircuts({ haircuts }: HaircutsProps){
   const [haircutList, setHaircutList] = useState<HaircutsItem[]>(haircuts || [])
   const [disableHaircut, setDisableHaircut] = useState("enabled")
 
-  async function handleDisable(e: ChangeEvent<HTMLInputElement>) {
+  async function handleDisable(e: ChangeEvent<HTMLInputElement>){
+    const apiClient = setupAPIClient();
+    
+    if(e.target.value === 'disabled'){
 
-    const apiClient = setupAPIClient()
-
-    if (e.target.value === "disabled") {
       setDisableHaircut("enabled")
-
-      const response = await apiClient.get("/haircuts", {
-        params: {
+      
+      const response = await apiClient.get('/haircuts', {
+        params:{
           status: true
         }
       })
 
-      setHaircutList(response.data)
+      setHaircutList(response.data);
 
-    } else {
+    }else{
+
       setDisableHaircut("disabled")
-
-      const response = await apiClient.get("/haircuts", {
-        params: {
+      const response = await apiClient.get('/haircuts', {
+        params:{
           status: false
         }
       })
 
-      setHaircutList(response.data)
+      setHaircutList(response.data);
 
     }
   }
@@ -101,8 +101,8 @@ export default function Haircuts({ haircuts }: HaircutsProps){
               colorScheme="green"
               size="lg"
               value={disableHaircut}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => handleDisable(e)}
-              isChecked={disableHaircut === "disabled" ? false : true}
+              onChange={ (e: ChangeEvent<HTMLInputElement>) => handleDisable(e) }
+              isChecked={disableHaircut === 'disabled' ? false : true}
             />
           </Stack>
 
@@ -155,7 +155,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
       }
     })
 
-
     if(response.data === null){
       return{
         redirect:{
@@ -164,7 +163,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
         }
       }
     }
-
 
     return{
       props: {
