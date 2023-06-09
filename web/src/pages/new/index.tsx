@@ -107,7 +107,7 @@ export default function New({ haircuts }: NewProps){
                 Voltar
               </Button>
             </ChakraLink>
-            <Heading fontSize="3xl" mt={4} mb={4} mr={4}>
+            <Heading color="orange.900" fontSize="3xl" mt={4} mb={4} mr={4}>
               Novo corte
             </Heading>
           </Flex>

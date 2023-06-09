@@ -78,11 +78,11 @@ export default function Dashboard({ schedule }: DashboardProps){
       <Sidebar>
         <Flex direction="column" align="flex-start" justify="flex-start">
           <Flex w="100%" direction="row" align="center" justify="flex-start">
-            <Heading fontSize="3xl" mt={4} mb={4} mr={4}>
+            <Heading color="orange.900" fontSize="3xl" mt={4} mb={4} mr={4}>
               Agenda
             </Heading>
             <Link href="/new">
-              <Button bg="gray.700" _hover={{ background: 'gray.700' }}>Registrar</Button>
+              <Button color="gray.100" bg="gray.700" _hover={{ background: 'gray.700' }}>Registrar</Button>
             </Link>
           </Flex>
 

@@ -155,9 +155,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps ) => {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
+      bg={useColorModeValue('gray.900', 'gray.900')}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+      borderBottomColor={useColorModeValue('gray.700', 'gray.700')}
       justifyContent="flex-start"
       {...rest}
     >

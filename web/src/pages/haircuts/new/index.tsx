@@ -90,11 +90,11 @@ export default function NewHaircut({ subscription, count }: NewHaircutProps){
               </Button>
             </ChakraLink>
             <Heading
-            color="orange.900"
-            mt={4}
-            mb={4}
-            mr={4}
-            fontSize={isMobile ? "28px" : "3xl"}
+              color="orange.900"
+              mt={4}
+              mb={4}
+              mr={4}
+              fontSize={isMobile ? "28px" : "3xl"}
             >
               Modelos de corte
             </Heading>
