@@ -48,6 +48,7 @@ export default function NewHaircut({ subscription, count }: NewHaircutProps){
       console.log(err);
       alert("Erro ao cadastrar esse modelo.")
     }
+
   }
 
   return(
