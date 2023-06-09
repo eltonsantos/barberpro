@@ -55,6 +55,7 @@ export default function Register(){
             mb={3}
             value={name}
             onChange={ (e) => setName(e.target.value) }
+            color="white"
           />
 
           <Input
@@ -66,6 +67,7 @@ export default function Register(){
             mb={3}
             value={email}
             onChange={ (e) => setEmail(e.target.value) }
+            color="white"
           />
 
           <Input
@@ -73,10 +75,11 @@ export default function Register(){
             variant="filled"
             size="lg"
             placeholder="********"
-            type="password"
+            type="text"
             mb={6}
             value={password}
             onChange={ (e) => setPassword(e.target.value) }
+            color="white"
           />
 
           <Button

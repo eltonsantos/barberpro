@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from 'react'
+
 import Head from 'next/head';
 import { Sidebar } from '../../components/sidebar'
 import {
@@ -6,7 +7,6 @@ import {
   Text,
   Heading,
   Button,
-  Link as ChakraLink,
   Stack,
   Switch,
   useMediaQuery
@@ -92,7 +92,7 @@ export default function Haircuts({ haircuts }: HaircutsProps){
           </Heading>
 
           <Link href="/haircuts/new">
-            <Button>
+            <Button bg="gray.700" _hover={{ background: 'gray.700' }}>
               Cadastrar novo
             </Button>
           </Link>
@@ -111,16 +111,7 @@ export default function Haircuts({ haircuts }: HaircutsProps){
          </Flex>
 
         {haircutList.map(haircut => (
-          <ChakraLink
-            w="100%"
-            m={0}
-            p={0}
-            mt={1}
-            bg="transparent" 
-            style={{ textDecoration: 'none' }} 
-            key={haircut.id}
-            href={`/haircuts/${haircut.id}`}
-          >
+          <Link key={haircut.id} href={`/haircuts/${haircut.id}`}>
             <Flex
               cursor="pointer"
               w="100%"
@@ -145,7 +136,7 @@ export default function Haircuts({ haircuts }: HaircutsProps){
               </Text>
   
             </Flex>
-          </ChakraLink>
+          </Link>
         ))}
 
         </Flex>

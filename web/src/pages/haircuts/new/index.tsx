@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head';
 import { Sidebar } from '../../../components/sidebar'
+
 import {
   Flex,
   Text,
@@ -67,6 +68,7 @@ export default function NewHaircut({ subscription, count }: NewHaircutProps){
           >
             <Link href="/haircuts">
               <Button 
+              bg="gray.700" _hover={{ background: 'gray.700' }}
               p={4} 
               display="flex" 
               alignItems="center" 

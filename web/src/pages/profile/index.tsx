@@ -29,7 +29,6 @@ interface ProfileProps{
 
 export default function Profile({ user, premium }: ProfileProps){
   const { logoutUser } = useContext(AuthContext);
-
   const [name, setName] = useState(user && user?.name)
   const [endereco, setEndereco] = useState(user?.endereco ? user?.endereco : '')
 

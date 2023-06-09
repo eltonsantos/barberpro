@@ -64,7 +64,7 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
       const apiClient = setupAPIClient();
       await apiClient.put('/haircut', {
         name: name,
-        price: Number(price),
+        price: price,
         status: status,
         haircut_id: haircut?.id
       })
@@ -93,7 +93,7 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
             mb={isMobile ? 4 : 0}
           >
             <Link href="/haircuts">
-              <Button mr={3} p={4} display="flex" alignItems="center" justifyContent="center">
+              <Button bg="gray.700" _hover={{ background: 'gray.700' }} mr={3} p={4} display="flex" alignItems="center" justifyContent="center">
                 <FiChevronLeft size={24} color="#FFF"/>
                 Voltar
               </Button>
