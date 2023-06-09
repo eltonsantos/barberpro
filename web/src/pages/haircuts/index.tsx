@@ -73,7 +73,7 @@ export default function Haircuts(){
           >
 
             <Flex mb={isMobile ? 2 : 0} direction="row" alignItems="center" justifyContent="center" >
-              <IoMdPricetag size={28} color="#fba931"/>
+              <IoMdPricetag size={28} color="#fba931" />
               <Text fontWeight="bold" ml={4} noOfLines={2} color="white">
                 Corte completo
               </Text>

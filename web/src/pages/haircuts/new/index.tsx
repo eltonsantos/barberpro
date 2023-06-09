@@ -13,7 +13,15 @@ import {
 import Link from 'next/link'
 import { FiChevronLeft } from 'react-icons/fi'
 
-export default function NewHaircut(){
+import { canSSRAuth } from '../../../utils/canSSRAuth'
+import { setupAPIClient } from '../../../services/api'
+
+interface NewHaircutProps{
+  subscription: boolean;
+  count: number;
+}
+
+export default function NewHaircut({ subscription, count }: NewHaircutProps){
   const [isMobile] = useMediaQuery("(max-width: 500px)");
 
   return(
@@ -90,9 +98,23 @@ export default function NewHaircut(){
               mb={6}
               bg="button.cta"
               _hover={{ bg: "#FFb13e" }}
+              disabled={!subscription && count >= 3}
             >
               Cadstrar
             </Button>
+
+            {!subscription && count >= 3 && (
+              <Flex direction="row" align="center" justifyContent="center">
+                <Text>
+                  Você atingiou seu limite de corte.
+                </Text>
+                <Link href="/planos">
+                  <Text fontWeight="bold" color="#31FB6A" cursor="pointer" ml={1}>
+                    Seja premium
+                  </Text>
+                </Link>
+              </Flex>
+            )}
 
           </Flex>
 
@@ -101,3 +123,31 @@ export default function NewHaircut(){
     </>
   )
 }
+
+export const getServerSideProps = canSSRAuth(async (ctx) => {
+
+  try{
+    const apiClient = setupAPIClient(ctx);
+
+    const response = await apiClient.get('/haircut/check')
+    const count = await apiClient.get('/haircut/count')
+
+    return {
+      props: {
+        subscription: response.data?.subscriptions?.status === 'active' ? true : false,
+        count: count.data
+      }
+    }
+
+  }catch(err){
+    console.log(err);
+
+    return{
+      redirect:{
+        destination: '/dashboard',
+        permanent:false,
+      }
+    }
+  }
+
+})
