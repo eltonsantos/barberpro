@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express'
+import express, { Router, Request, Response } from 'express'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -45,7 +45,7 @@ router.delete('/schedule', isAuthenticated, new FinishScheduleController().handl
 
 // --- ROTA PAGAMENTOS ---
 router.post('/subscribe', isAuthenticated, new SubscribeController().handle)
-router.post('/webhooks', new WebhooksController().handle)
+router.post('/webhooks', express.raw({ type: 'application/json'}), new WebhooksController().handle)
 router.post('/create-portal', isAuthenticated, new CreatePortalController().handle)
 
 export { router };
