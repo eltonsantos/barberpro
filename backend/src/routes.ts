@@ -20,6 +20,7 @@ import { FinishScheduleController } from './controllers/schedule/FinishScheduleC
 
 import { SubscribeController } from './controllers/subscription/SubscribeController'
 import { WebhooksController } from './controllers/subscription/WebhooksController'
+import { CreatePortalController } from './controllers/subscription/CreatePortalController'
 
 const router = Router();
 
@@ -45,5 +46,6 @@ router.delete('/schedule', isAuthenticated, new FinishScheduleController().handl
 // --- ROTA PAGAMENTOS ---
 router.post('/subscribe', isAuthenticated, new SubscribeController().handle)
 router.post('/webhooks', new WebhooksController().handle)
+router.post('/create-portal', isAuthenticated, new CreatePortalController().handle)
 
 export { router };
