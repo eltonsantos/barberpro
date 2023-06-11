@@ -105,7 +105,7 @@ export default function Planos({ premium }: PlanosProps){
                 <Text fontWeight="medium" ml={4} mb={2}>Editar modelos de corte.</Text>
                 <Text fontWeight="medium" ml={4} mb={2}>Editar dados do perfil.</Text>
                 <Text fontWeight="medium" ml={4} mb={2}>Receber todas atualizações.</Text>
-                <Text color="#31fb6a" fontWeight="bold" fontSize="2xl" ml={4} mb={2}>R$ 9.99</Text>
+                <Text color="#31fb6a" fontWeight="bold" fontSize="2xl" ml={4} mb={2}>R$ 9.90</Text>
 
                 <Button
                   bg={premium ? "transparent" : "button.cta"}
@@ -113,6 +113,8 @@ export default function Planos({ premium }: PlanosProps){
                   color="white"
                   onClick={handleSubscribe}
                   disabled={premium}
+                  isDisabled={premium ? true : false}
+                  _hover={{ background: 'transparent' }}
                 >
                   {premium ? (
                     "VOCÊ JÁ É PREMIUM"
