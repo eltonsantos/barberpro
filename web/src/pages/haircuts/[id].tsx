@@ -22,7 +22,7 @@ import { setupAPIClient } from '../../services/api'
 interface HaircutProps{
   id: string;
   name: string;
-  price: string | number;
+  price: number;
   status: boolean;
   user_id: string;
 }
@@ -56,13 +56,17 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
   }
 
   async function handleUpdate(){
-    if(name === '' || price === ''){
+    console.log("NAME: " + typeof(name))
+    console.log("PRICE: " + typeof(price))
+    console.log("STATUS: " + typeof(status))
+    if(name === '' || price === null){
       return;
     }
 
     try{
 
       const apiClient = setupAPIClient();
+      console.log("API: " + apiClient)
       await apiClient.put('/haircut', {
         name: name,
         price: price,
@@ -140,7 +144,7 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
                 type="number"
                 w="100%"
                 value={price}
-                onChange={ (e) => setPrice(e.target.value)}
+                onChange={ (e) => setPrice(parseFloat(e.target.value))}
               />
 
               <Stack mb={6} align="center" direction="row">
