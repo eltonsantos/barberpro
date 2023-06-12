@@ -114,7 +114,7 @@ export default function Planos({ premium }: PlanosProps){
                   onClick={handleSubscribe}
                   disabled={premium}
                   isDisabled={premium ? true : false}
-                  _hover={{ background: 'transparent' }}
+                  _hover={{ background: premium ? 'transparent' : 'button.cta' }}
                 >
                   {premium ? (
                     "VOCÊ JÁ É PREMIUM"
