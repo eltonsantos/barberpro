@@ -56,9 +56,6 @@ export default function EditHaircut({ subscription, haircut }: EditHaircutProps)
   }
 
   async function handleUpdate(){
-    console.log("NAME: " + typeof(name))
-    console.log("PRICE: " + typeof(price))
-    console.log("STATUS: " + typeof(status))
     if(name === '' || price === null){
       return;
     }
