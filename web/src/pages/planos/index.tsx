@@ -135,8 +135,7 @@ export default function Planos({ premium }: PlanosProps){
                   </Button>
                 )}
 
-              </Flex> 
-
+              </Flex>
 
           </Flex>
 

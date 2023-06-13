@@ -18,7 +18,6 @@ import { Sidebar } from '../../components/sidebar'
 import { setupAPIClient } from '../../services/api'
 import { ModalInfo } from '../../components/modal'
 
-
 export interface ScheduleItem{
   id: string;
   customer: string;

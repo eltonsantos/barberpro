@@ -43,7 +43,6 @@ interface SignUpProps{
 export const AuthContext = createContext({} as AuthContextData)
 
 export function signOut(){
-  console.log("ERORR LOGOUT");
   try{
     destroyCookie(null, '@barber.token', { path: '/' })
     Router.push('/login');
